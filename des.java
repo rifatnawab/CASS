@@ -11,18 +11,18 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 
-public class CipherExample {
+public class des {
 
 	public static void main(String[] args) {
 		try {
 			String key = "squirrel123"; // needs to be at least 8 characters for DES
 
-			FileInputStream fis = new FileInputStream("original.txt");
-			FileOutputStream fos = new FileOutputStream("encrypted.txt");
+			FileInputStream fis = new FileInputStream("rifat.txt");
+			FileOutputStream fos = new FileOutputStream("niki.txt");
 			encrypt(key, fis, fos);
 
-			FileInputStream fis2 = new FileInputStream("encrypted.txt");
-			FileOutputStream fos2 = new FileOutputStream("decrypted.txt");
+			FileInputStream fis2 = new FileInputStream("niki.txt");
+			FileOutputStream fos2 = new FileOutputStream("rifat1.txt");
 			decrypt(key, fis2, fos2);
 		} catch (Throwable e) {
 			e.printStackTrace();

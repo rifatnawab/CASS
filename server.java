@@ -18,7 +18,7 @@ BufferedReader br = new BufferedReader(new FileReader(clientLine));
 String input=br.readLine();
 
 DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-outToClient.writeBytes(input.toLowerCase() + '\n');
+outToClient.writeBytes(input + '\n');
 
 }
 else{
