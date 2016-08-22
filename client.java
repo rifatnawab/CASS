@@ -25,12 +25,21 @@ case 1:
 FileInputStream fis=new FileInputStream("rifat.txt");
 FileOutputStream fos=new FileOutputStream("enrifat.txt");
 encrypt(key,fis,fos);
+fos.flush();
+fos.close();
+fis.close();
 
-BufferedReader inFromUser1 = new BufferedReader(new FileReader("enrifat.txt"));
-String line1=inFromUser1.readLine();
+FileInputStream fin=new FileInputStream("enrifat.txt");
+byte data[]=new byte[50];
+int content;
+fin.read(data);
+String line1=new String(data);
+
+//BufferedReader inFromUser1 = new BufferedReader(new FileReader("enrifat.txt"));
+//String line1=inFromUser1.readLine();
 
 DataOutputStream outToServer1 = new DataOutputStream(clientSocket.getOutputStream());
-outToServer1.writeBytes(line1 + '\n');
+outToServer1.writeBytes(line1);
 
 break;
 
@@ -53,9 +62,12 @@ BufferedWriter bw = new BufferedWriter(fw);
 bw.write(recievedLine);
 bw.close();
 
-FileInputStream fis2=new FileInputStream("rifat1.txt");
+FileInputStream fis2=new FileInputStream("enrifat.txt");
 FileOutputStream fos2=new FileOutputStream("rifat2.txt");
 decrypt(key,fis2,fos2);
+fos2.flush();
+fos2.close();
+fis2.close();
 break;
 
 }
